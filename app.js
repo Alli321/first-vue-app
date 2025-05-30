@@ -42,6 +42,9 @@ const app = Vue.createApp({
       if (index === this.steps.length - 1) {
         this.btns[1].name = "Закончить";
       }
+      if (this.currentStep < this.steps.length - 1) {
+        this.btns[1].name = "Вперед";
+      }
     },
   },
 }).mount("#app");

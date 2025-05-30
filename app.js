@@ -44,6 +44,7 @@ const app = Vue.createApp({
       }
       if (this.currentStep < this.steps.length - 1) {
         this.btns[1].name = "Вперед";
+        this.hideBackButton = true;
       }
     },
   },

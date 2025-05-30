@@ -1,0 +1,109 @@
+body {
+  background-color: #2c3e50;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+.card {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+  background: #e1f1f5;
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* menu buttons and text */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #d7d7d7;
+  color: rgb(102, 100, 100);
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-circle.passed {
+  background-color: #4b844b9f;
+  color: rgb(0, 0, 0);
+}
+.btn-circle.active {
+  background-color: #4085409f;
+  color: white;
+}
+
+.label {
+  font-size: 16px;
+  color: #333;
+}
+
+/* navigation buttons */
+.navigation {
+  display: flex;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.btn-navi {
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border: 1px solid #4085409f;
+}
+.btn-navi.prev {
+  background-color: #f3f3f3;
+  color: #4085409f;
+  border-color: #4085409f;
+}
+.btn-navi.next {
+  background-color: #4085409f;
+  color: white;
+  border-color: #4085409f;
+}
+.btn-navi:disabled {
+  background-color: #f3f3f3;
+  color: #ccc;
+  cursor: not-allowed;
+  border-color: #ccc;
+}
+.btn-navi.finish {
+  background-color: #f3f3f3;
+  color: #4085409f;
+  border-color: #4085409f;
+}

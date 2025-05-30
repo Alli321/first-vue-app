@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="app" v-cloak>
+      <div class="card center">
+        <h2>Средний заголовок</h2>
+
+        <div class="content">
+          <p>{{ steps[currentStep].content }}</p>
+        </div>
+
+        <div class="menu">
+          <div v-for="(step, index) in steps" :key="index" class="step">
+            <button
+              class="btn-circle"
+              :class="{
+            active: index === currentStep,
+            passed: index < currentStep
+          }"
+              @click="goToStep(index)"
+            >
+              {{ index +1 }}
+            </button>
+            <span class="step-title">{{ step.title }}</span>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <button
+            class="btn-navi prev"
+            @click="prevStep"
+            :disabled="currentStep === 0"
+            v-if="hideBackButton"
+          >
+            {{ btns[0].name }}
+          </button>
+          <button
+            class="btn-navi next"
+            @click="nextStep"
+            :class="{ finish: btns[1].name === 'Начать заново' }"
+          >
+            {{ btns[1].name }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

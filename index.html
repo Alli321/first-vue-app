@@ -43,14 +43,14 @@
             :disabled="currentStep === 0"
             v-if="hideBackButton"
           >
-            {{ btns[0].name }}
+            {{ prevButton.name }}
           </button>
           <button
             class="btn-navi next"
             @click="nextStep"
-            :class="{ finish: btns[1].name === 'Начать заново' }"
+            :class="{ finish: nextButton.name === restartButton.name }"
           >
-            {{ btns[1].name }}
+            {{ nextButton.name }}
           </button>
         </div>
       </div>

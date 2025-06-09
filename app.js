@@ -10,7 +10,11 @@ const app = Vue.createApp({
         { title: "Vuex", content: "Это шаг про Vuex." },
         { title: "Composition API", content: "Это шаг про Composition API." },
       ],
-      btns: [{ name: "Назад" }, { name: "Вперед" }],
+      nextButton: { name: "Вперед" },
+      prevButton: { name: "Назад" },
+      finishButton: { name: "Закончить" },
+      restartButton: { name: "Начать заново" },
+      defaultNextButton: "Вперед",
     };
   },
   methods: {
@@ -18,14 +22,14 @@ const app = Vue.createApp({
       if (this.currentStep < this.steps.length - 1) {
         this.currentStep++;
         if (this.currentStep === this.steps.length - 1) {
-          this.btns[1].name = "Закончить";
+          this.nextButton.name = this.finishButton.name;
         }
-      } else if (this.btns[1].name === "Закончить") {
-        this.btns[1].name = "Начать заново";
+      } else if (this.nextButton.name === this.finishButton.name) {
+        this.nextButton.name = this.restartButton.name;
         this.hideBackButton = false;
-      } else if (this.btns[1].name === "Начать заново") {
+      } else if (this.nextButton.name === this.restartButton.name) {
         this.currentStep = 0;
-        this.btns[1].name = "Вперед";
+        this.nextButton.name = this.defaultNextButton;
         this.hideBackButton = true;
       }
     },
@@ -34,16 +38,16 @@ const app = Vue.createApp({
         this.currentStep--;
       }
       if (this.currentStep < this.steps.length - 1) {
-        this.btns[1].name = "Вперед";
+        this.nextButton.name = this.defaultNextButton;
       }
     },
     goToStep(index) {
       this.currentStep = index;
       if (index === this.steps.length - 1) {
-        this.btns[1].name = "Закончить";
+        this.nextButton.name = this.finishButton.name;
       }
       if (this.currentStep < this.steps.length - 1) {
-        this.btns[1].name = "Вперед";
+        this.nextButton.name = this.defaultNextButton;
         this.hideBackButton = true;
       }
     },
